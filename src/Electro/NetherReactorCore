@@ -5,6 +5,7 @@ use pocketmine\event\block\BlockPlaceEvent;
 use pocketmine\plugin\PluginBase;
 use pocketmine\player\Player;
 use pocketmine\event\Listener;
+use pocketmine\block\Block;
 
 class NetherReactorCore extends PluginBase implements Listener{
    public function onEnable(): void
@@ -14,7 +15,8 @@ class NetherReactorCore extends PluginBase implements Listener{
    
    public function onPlace(BlockPlaceEvent $event)
    {
-   
+       $block = $event->gstBlockPlaced();
+       if(
    }
 }
 
