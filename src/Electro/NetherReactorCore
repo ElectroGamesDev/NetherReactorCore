@@ -16,7 +16,10 @@ class NetherReactorCore extends PluginBase implements Listener{
    public function onPlace(BlockPlaceEvent $event)
    {
        $block = $event->gstBlockPlaced();
-       if(
+       $player = $event->getPlayer();
+       
+       if(!$block->getId() == 247) return;
+       if($this->getServer()->worldManager()->getWorld($player->getWorld())->getBlock($block->getPosition())
    }
 }
 
