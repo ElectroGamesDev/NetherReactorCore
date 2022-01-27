@@ -20,6 +20,11 @@ class NetherReactorCore extends PluginBase implements Listener{
        
        if(!$block->getId() == 247) return;
        if($this->getServer()->worldManager()->getWorld($player->getWorld())->getBlockAt($block->getPosition().x, $block->getPosition().y - 1, $block->getPosition().z).getId() != 4) return;
+       if($this->getServer()->worldManager()->getWorld($player->getWorld())->getBlockAt($block->getPosition().x, $block->getPosition().y + 1, $block->getPosition().z).getId() != 4) return;
+       if($this->getServer()->worldManager()->getWorld($player->getWorld())->getBlockAt($block->getPosition().x + 1, $block->getPosition().y, $block->getPosition().z).getId() != 4) return;
+       
+       
+       
    }
 }
 
