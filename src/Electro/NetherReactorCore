@@ -15,16 +15,30 @@ class NetherReactorCore extends PluginBase implements Listener{
    
    public function onPlace(BlockPlaceEvent $event)
    {
-       $block = $event->gstBlockPlaced();
+       $block = $event->getBlockPlaced();
        $player = $event->getPlayer();
        
        if(!$block->getId() == 247) return;
-       if($this->getServer()->worldManager()->getWorld($player->getWorld())->getBlockAt($block->getPosition().x, $block->getPosition().y - 1, $block->getPosition().z).getId() != 4) return;
+
+       $pos = $block->getPosition();
+       $x = $pos->x;
+       $y = $pos->y;
+       $z = $pos->z;
+       $world = $this->getServer()->worldManager()->getWorld($player->getWorld());
+
+       if(is)->getBlockAt($block->getPosition().x, $block->getPosition().y - 1, $block->getPosition().z).getId() != 4) return;
        if($this->getServer()->worldManager()->getWorld($player->getWorld())->getBlockAt($block->getPosition().x, $block->getPosition().y + 1, $block->getPosition().z).getId() != 4) return;
        if($this->getServer()->worldManager()->getWorld($player->getWorld())->getBlockAt($block->getPosition().x + 1, $block->getPosition().y, $block->getPosition().z).getId() != 4) return;
+
+      if ($this->block($world, $x + 1, $y, $z)->getId() !==4) return;
        
        
        
+   }
+
+   public function getBlock($world, $x, $y, z)
+   {
+     Return $world->getBlockAt($x,y,z);
    }
 }
 
