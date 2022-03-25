@@ -45,12 +45,39 @@ class NetherReactorCore extends PluginBase implements Listener{
       if ($this->block($world, $x + 1, $y - 1, $z - 1)->getId() !==41) return;
       if ($this->block($world, $x - 1, $y - 1, $z + 1)->getId() !==41) return;
 
-      $this->startReaction($x, $y, $z);
+      $this->startReaction($world, $x, $y, $z);
    }
 
    public function getBlock($world, $x, $y, z)
    {
-     Return $world->getBlockAt($x,y,z);
+     return $world->getBlockAt($x,y,z);
+   }
+
+   public function setBlock($world, $block, $x, $y, $z)
+   {
+      return $world->setBlockAt($block, $x, $y, $x);
+   }
+
+   public function startReaction($world, $x, $y, $z)
+   {
+      // Top
+      $this->setBlock($world, $x, $y + 1, $z, 246);
+      $this->setBlock($world, $x + 1, $y + 1, $z, 246;
+      $this->setBlock($world, $x - 1, $y, $z, 246;
+      $this->setBlock($world, $x, $y + 1, $z + 1, 246);
+      $this->setBlock($world, $x, $y + 1, $z + 1, 246);
+
+      // Bottom
+      $this->setBlock($world, $x, $y - 1, $z, 246);
+      $this->setBlock($world, $x + 1, $y - 1, $z, 246);
+      $this->setBlock($world, $x - 1, $y - 1, $z, 246);
+      $this->setBlock($world, $x, $y - 1, $z + 1, 246);
+      $this->setBlock($world, $x, $y - 1, $z + 1, 246);
+       
+      $this->setBlock($world, $x + 1, $y - 1, $z + 1, 246);
+      $this->setBlock($world, $x - 1, $y - 1, $z - 1, 246);
+      $this->setBlock($world, $x + 1, $y - 1, $z - 1, 246);
+      $this->setBock($world, $x - 1, $y - 1, $z + 1, 246);
    }
 }
 
