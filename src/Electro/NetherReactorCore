@@ -26,14 +26,26 @@ class NetherReactorCore extends PluginBase implements Listener{
        $z = $pos->z;
        $world = $this->getServer()->worldManager()->getWorld($player->getWorld());
 
-       if(is)->getBlockAt($block->getPosition().x, $block->getPosition().y - 1, $block->getPosition().z).getId() != 4) return;
-       if($this->getServer()->worldManager()->getWorld($player->getWorld())->getBlockAt($block->getPosition().x, $block->getPosition().y + 1, $block->getPosition().z).getId() != 4) return;
-       if($this->getServer()->worldManager()->getWorld($player->getWorld())->getBlockAt($block->getPosition().x + 1, $block->getPosition().y, $block->getPosition().z).getId() != 4) return;
+      // Top
+      if ($this->block($world, $x, $y + 1, $z)->getId() !==4) return;
+      if ($this->block($world, $x + 1, $y + 1, $z)->getId() !==4) return;
+      if ($this->block($world, $x - 1, $y + 1, $z)->getId() !==4) return;
+      if ($this->block($world, $x, $y + 1, $z + 1)->getId() !==4) return;
+      if ($this->block($world, $x, $y + 1, $z + 1)->getId() !==4) return;
 
-      if ($this->block($world, $x + 1, $y, $z)->getId() !==4) return;
+      // Bottom
+      if ($this->block($world, $x, $y - 1, $z)->getId() !==4) return;
+      if ($this->block($world, $x + 1, $y - 1, $z)->getId() !==4) return;
+      if ($this->block($world, $x - 1, $y - 1, $z)->getId() !==4) return;
+      if ($this->block($world, $x, $y - 1, $z + 1)->getId() !==4) return;
+      if ($this->block($world, $x, $y - 1, $z + 1)->getId() !==4) return;
        
-       
-       
+      if ($this->block($world, $x + 1, $y - 1, $z + 1)->getId() !==41) return;
+      if ($this->block($world, $x - 1, $y - 1, $z - 1)->getId() !==41) return;
+      if ($this->block($world, $x + 1, $y - 1, $z - 1)->getId() !==41) return;
+      if ($this->block($world, $x - 1, $y - 1, $z + 1)->getId() !==41) return;
+
+      $this->startReaction($x, $y, $z);
    }
 
    public function getBlock($world, $x, $y, z)
