@@ -13,9 +13,9 @@ class NetherReactorCore extends PluginBase implements Listener{
        $this->getServer()->getPluginManager()->registerEvents($this, $this);
    }
    
-   public function onPlace(BlockPlaceEvent $event)
+   public function onInteract(PlayerInteractEvent $event)
    {
-       $block = $event->getBlockPlaced();
+       $block = $event->getBlock();
        $player = $event->getPlayer();
        
        if(!$block->getId() == 247) return;
